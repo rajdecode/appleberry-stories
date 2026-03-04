@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | Appleberry Stories</title>
+    <meta name="description"
+        content="Shop organic quinoa, flax, chia, sunflower, and pumpkin seeds responsibly sourced for your healthy lifestyle." />
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+
+    <div class="announcement-bar">
+        🌿 <span>🎉 Fresh savings on natural seeds!</span> Free UK delivery on orders over £30 <span>🌿</span>
+    </div>
+
+    <nav class="nav" id="mainNav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Appleberry Stories" class="nav__logo-img" />
+                <div class="nav__logo-text">
+                    <span class="brand-name">Appleberry Stories</span>
+                    <span class="brand-tagline">Pure · Organic · Natural</span>
+                </div>
+            </a>
+            <ul class="nav__links">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="shop.html" class="nav__link active">Shop</a></li>
+                <li><a href="about.html" class="nav__link">About Us</a></li>
+                <li><a href="values.html" class="nav__link">Our Values</a></li>
+                <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+                <li><a href="shop.html" class="nav__link nav__cta">Shop Now →</a></li>
+            </ul>
+            <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <ul class="nav__mobile" id="mobileMenu">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="shop.html" class="nav__link">Shop</a></li>
+            <li><a href="about.html" class="nav__link">About Us</a></li>
+            <li><a href="values.html" class="nav__link">Our Values</a></li>
+            <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container page-hero__content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Shop</span>
+            </div>
+            <h1>Our Organic Range</h1>
+            <p class="subtitle">Premium seeds and grains, responsibly sourced and lovingly packed for your family's
+                health.</p>
+        </div>
+    </div>
+
+    <!-- Shop Filters + Grid -->
+    <section class="section section--cream">
+        <div class="container">
+
+            <!-- Filter Bar -->
+            <div
+                style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--color-linen);">
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-muted);">Filter by:</span>
+                <div class="category-strip" style="margin-bottom: 0;">
+                    <button class="category-pill active" data-filter="all">All Products</button>
+                    <button class="category-pill" data-filter="seeds">Seeds</button>
+                    <button class="category-pill" data-filter="grains">Grains</button>
+                    <button class="category-pill" data-filter="omega">Omega Rich</button>
+                    <button class="category-pill" data-filter="bundle">Bundles</button>
+                </div>
+                <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 0.82rem; color: var(--color-text-light);">6 products</span>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card animate-fade-up" data-category="grains">
+                    <div class="product-card__image-wrap">
+                        <img src="assets/images/quinoa.png" alt="Organic Quinoa" loading="lazy" />
+                        <span class="product-card__badge">Best Seller</span>
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Grains</div>
+                        <h3 class="product-card__name">Organic Quinoa</h3>
+                        <p class="product-card__desc">Nutty, fluffy, and packed with complete protein. A versatile grain
+                            perfect as a rice alternative, in salads, or as a breakfast bowl base.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£6.99 <span class="product-card__price-unit">/
+                                        500g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card animate-fade-up animate-delay-1" data-category="seeds omega">
+                    <div class="product-card__image-wrap">
+                        <img src="assets/images/flax.png" alt="Golden Flaxseeds" loading="lazy" />
+                        <span class="product-card__badge--amber product-card__badge">Omega-3 Rich</span>
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Seeds · Omega Rich</div>
+                        <h3 class="product-card__name">Golden Flaxseeds</h3>
+                        <p class="product-card__desc">Rich in omega-3 fatty acids, fibre, and plant-based protein. Add
+                            to smoothies, porridge, or baking.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£4.99 <span class="product-card__price-unit">/
+                                        400g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card animate-fade-up animate-delay-2" data-category="seeds">
+                    <div class="product-card__image-wrap">
+                        <img src="assets/images/sunflower.png" alt="Sunflower Seeds" loading="lazy" />
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Seeds</div>
+                        <h3 class="product-card__name">Sunflower Seeds</h3>
+                        <p class="product-card__desc">Crunchy, wholesome, and naturally delicious. High in vitamin E and
+                            heart-healthy fats.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£3.99 <span class="product-card__price-unit">/
+                                        400g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card animate-fade-up animate-delay-3" data-category="seeds omega">
+                    <div class="product-card__image-wrap">
+                        <img src="assets/images/chia.png" alt="Chia Seeds" loading="lazy" />
+                        <span class="product-card__badge">Popular</span>
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Seeds · Omega Rich</div>
+                        <h3 class="product-card__name">Chia Seeds</h3>
+                        <p class="product-card__desc">Superfood powerhouses rich in fibre, omega-3, calcium, and
+                            antioxidants. Perfect for puddings, drinks, and baking.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£5.49 <span class="product-card__price-unit">/
+                                        300g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card animate-fade-up animate-delay-4" data-category="seeds">
+                    <div class="product-card__image-wrap">
+                        <img src="assets/images/pumpkin.png" alt="Pumpkin Seeds" loading="lazy" />
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Seeds</div>
+                        <h3 class="product-card__name">Pumpkin Seeds</h3>
+                        <p class="product-card__desc">Rich in zinc, magnesium, and iron. A delicious, nutrient-dense
+                            snack or salad topper.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£4.49 <span class="product-card__price-unit">/
+                                        350g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card animate-fade-up animate-delay-5" data-category="bundle">
+                    <div class="product-card__image-wrap"
+                        style="background: linear-gradient(135deg, var(--color-parchment), var(--color-linen)); display:flex; align-items:center; justify-content:center; font-size:5rem;">
+                        🌾
+                    </div>
+                    <div class="product-card__body">
+                        <div class="product-card__category">Bundle · Save 15%</div>
+                        <h3 class="product-card__name">Super Seed Mix</h3>
+                        <p class="product-card__desc">Our signature blend of flax, chia, sunflower, and pumpkin seeds.
+                            The ultimate daily wellness boost.</p>
+                        <div class="product-card__footer">
+                            <div>
+                                <div class="product-card__price">£9.99 <span class="product-card__price-unit">/
+                                        500g</span></div>
+                            </div>
+                            <button class="product-card__btn" aria-label="Add to cart">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="section--linen" style="padding: 60px 0;">
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center;">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🌱</div>
+                    <h4 style="color: var(--color-forest); margin-bottom: 8px;">100% Organic</h4>
+                    <p style="font-size: 0.875rem;">Certified by soil association</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🚚</div>
+                    <h4 style="color: var(--color-forest); margin-bottom: 8px;">Free UK Delivery</h4>
+                    <p style="font-size: 0.875rem;">On all orders over £30</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">↩️</div>
+                    <h4 style="color: var(--color-forest); margin-bottom: 8px;">14-Day Returns</h4>
+                    <p style="font-size: 0.875rem;">Hassle-free returns policy</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🔒</div>
+                    <h4 style="color: var(--color-forest); margin-bottom: 8px;">Secure Checkout</h4>
+                    <p style="font-size: 0.875rem;">Safe & encrypted payments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section section--cream">
+        <div class="container">
+            <div class="section-header animate-fade-up">
+                <span class="section-eyebrow">Reviews</span>
+                <h2>What Our Customers Say</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-fade-up">
+                    <div class="testimonial-card__quote-mark">"</div>
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">Love the fresh taste and purity of these seeds – perfect for my
+                        morning muesli! Genuinely the best quality I've found in the UK.</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">E</div>
+                        <div>
+                            <div class="testimonial-card__name">Emma J.</div>
+                            <div class="testimonial-card__role">Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-fade-up animate-delay-1">
+                    <div class="testimonial-card__quote-mark">"</div>
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">I trust Appleberry Stories for clean, organic grains that help
+                        keep my family healthy. The quality is exceptional and delivery is always fast.</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">M</div>
+                        <div>
+                            <div class="testimonial-card__name">Mark S.</div>
+                            <div class="testimonial-card__role">Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-fade-up animate-delay-2">
+                    <div class="testimonial-card__quote-mark">"</div>
+                    <div class="testimonial-card__stars">★★★★★</div>
+                    <p class="testimonial-card__text">The Super Seed Mix has become a daily staple in our house. So easy
+                        to add to everything and I love knowing it's genuinely organic.</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">R</div>
+                        <div>
+                            <div class="testimonial-card__name">Rachel K.</div>
+                            <div class="testimonial-card__role">Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer-logo-text">🌿 Appleberry Stories</div>
+                    <p>Pure seeds, pure stories. Bringing the finest organic grains and seeds from responsible farmers
+                        to UK families.</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="footer__social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="values.html">Our Values</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Products</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Organic Quinoa</a></li>
+                        <li><a href="#">Golden Flaxseeds</a></li>
+                        <li><a href="#">Chia Seeds</a></li>
+                        <li><a href="#">Sunflower Seeds</a></li>
+                        <li><a href="#">Pumpkin Seeds</a></li>
+                        <li><a href="#">Super Seed Mix</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Contact</h4>
+                    <div class="footer__contact-item">📧 hello@appleberrystories.com</div>
+                    <div class="footer__contact-item">📍 Sale, Manchester</div>
+                    <div class="footer__contact-item">🕐 Mon-Fri 9am–5pm</div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Appleberry Stories. All rights reserved.</p>
+                <div class="footer__bottom-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs | Appleberry Stories</title>
+    <meta name="description"
+        content="Find answers about our organic quinoa, seeds, and healthy sourcing practices at Appleberry Stories." />
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+
+    <div class="announcement-bar">
+        🌿 <span>🎉 Fresh savings on natural seeds!</span> Free UK delivery on orders over £30 <span>🌿</span>
+    </div>
+
+    <nav class="nav" id="mainNav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/images/logo.png" alt="Appleberry Stories" class="nav__logo-img" />
+                <div class="nav__logo-text">
+                    <span class="brand-name">Appleberry Stories</span>
+                    <span class="brand-tagline">Pure · Organic · Natural</span>
+                </div>
+            </a>
+            <ul class="nav__links">
+                <li><a href="index.html" class="nav__link">Home</a></li>
+                <li><a href="shop.html" class="nav__link">Shop</a></li>
+                <li><a href="about.html" class="nav__link">About Us</a></li>
+                <li><a href="values.html" class="nav__link">Our Values</a></li>
+                <li><a href="faqs.html" class="nav__link active">FAQs</a></li>
+                <li><a href="contact.html" class="nav__link">Contact</a></li>
+                <li><a href="shop.html" class="nav__link nav__cta">Shop Now →</a></li>
+            </ul>
+            <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <ul class="nav__mobile" id="mobileMenu">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="shop.html" class="nav__link">Shop</a></li>
+            <li><a href="about.html" class="nav__link">About Us</a></li>
+            <li><a href="values.html" class="nav__link">Our Values</a></li>
+            <li><a href="faqs.html" class="nav__link">FAQs</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <div class="container page-hero__content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>FAQs</span>
+            </div>
+            <h1>Frequently Asked Questions</h1>
+            <p class="subtitle">Everything you need to know about our products, delivery, and sourcing practices.</p>
+        </div>
+    </div>
+
+    <!-- FAQs -->
+    <section class="section section--cream">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start;">
+
+                <!-- Sidebar Categories -->
+                <div class="animate-fade-up" style="position: sticky; top: 120px;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.1rem;">Topics</h3>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <button class="category-pill active" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'all')">All Questions</button>
+                        <button class="category-pill" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'products')">🌾 Products</button>
+                        <button class="category-pill" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'delivery')">🚚 Delivery</button>
+                        <button class="category-pill" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'storage')">📦 Storage</button>
+                        <button class="category-pill" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'returns')">↩️ Returns</button>
+                        <button class="category-pill" style="text-align:left; justify-content:flex-start;"
+                            onclick="filterFaqs(this, 'health')">💚 Health</button>
+                    </div>
+
+                    <div
+                        style="margin-top: 40px; background: var(--color-forest); border-radius: var(--radius-lg); padding: 28px; color: var(--color-cream);">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">💬</div>
+                        <h4 style="color: var(--color-gold); margin-bottom: 10px;">Still have questions?</h4>
+                        <p
+                            style="font-size: 0.875rem; color: rgba(250,246,237,0.8); margin-bottom: 18px; line-height: 1.65;">
+                            Our team is happy to help with anything else you need.</p>
+                        <a href="contact.html" class="btn btn--amber btn--sm">Contact Us →</a>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="animate-fade-up animate-delay-1">
+                    <!-- Products -->
+                    <div
+                        style="margin-bottom: 12px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-amber); padding: 0 28px;">
+                        🌾 Products</div>
+                    <div class="faq-list" style="margin-bottom: 36px;">
+                        <div class="faq-item" data-category="products">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Are your grains and seeds organic?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Yes, absolutely! All our grains and seeds are certified organic and responsibly
+                                    sourced. We hold Soil Association certification, which means every product meets
+                                    rigorous organic standards — from the soil it grows in to the packaging it arrives
+                                    in.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-category="products">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Are your products gluten-free?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    All our grains and seeds are naturally gluten-free and safe for sensitive diets,
+                                    including those with coeliac disease. However, we recommend checking individual
+                                    product labels as we cannot guarantee a completely gluten-free production
+                                    environment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-category="products">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Where do your products come from?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Our seeds and grains are sourced from certified organic farms around the world —
+                                    including Bolivia for quinoa, Canada for flaxseeds, and Mexico for chia seeds. We
+                                    maintain direct relationships with our farming partners and regularly audit their
+                                    practices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery -->
+                    <div
+                        style="margin-bottom: 12px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-amber); padding: 0 28px;">
+                        🚚 Delivery</div>
+                    <div class="faq-list" style="margin-bottom: 36px;">
+                        <div class="faq-item" data-category="delivery">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Do you ship across the UK?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Yes! We deliver to all UK addresses with fast, reliable shipping and eco-friendly
+                                    packaging. Standard delivery takes 2–4 business days, and we offer free delivery on
+                                    all orders over £30.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-category="delivery">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How much does delivery cost?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Standard delivery is £3.99 for orders under £30. All orders over £30 qualify for
+                                    free standard delivery. We also offer express next-day delivery for £5.99 if you
+                                    need your order sooner.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Storage -->
+                    <div
+                        style="margin-bottom: 12px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-amber); padding: 0 28px;">
+                        📦 Storage</div>
+                    <div class="faq-list" style="margin-bottom: 36px;">
+                        <div class="faq-item" data-category="storage">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How should I store my seeds?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Keep seeds in a cool, dry place away from direct sunlight to maintain freshness and
+                                    flavour. Once opened, reseal the packet tightly or transfer to an airtight
+                                    container. Most seeds last 6–12 months when stored correctly.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-category="storage">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Can I freeze seeds and grains?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Yes! Freezing is a great way to extend the shelf life of seeds and grains,
+                                    particularly flaxseeds which are high in oils. Store in an airtight container in the
+                                    freezer for up to 12 months. Thaw at room temperature before use.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Returns -->
+                    <div
+                        style="margin-bottom: 12px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-amber); padding: 0 28px;">
+                        ↩️ Returns</div>
+                    <div class="faq-list" style="margin-bottom: 36px;">
+                        <div class="faq-item" data-category="returns">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Can I return products if I'm unsatisfied?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Yes, we offer hassle-free returns within 14 days of delivery for unopened products.
+                                    Simply contact us at hello@appleberrystories.com and we'll arrange a return and full
+                                    refund. Your satisfaction is our priority.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health -->
+                    <div
+                        style="margin-bottom: 12px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-amber); padding: 0 28px;">
+                        💚 Health</div>
+                    <div class="faq-list">
+                        <div class="faq-item" data-category="health">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                How much should I eat per day?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    We recommend 1–2 tablespoons (10–20g) of seeds per day as part of a balanced diet.
+                                    Seeds are nutrient-dense, so a little goes a long way! Sprinkle on porridge, salads,
+                                    yoghurt or blend into smoothies for easy daily intake.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item" data-category="health">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                Are your products suitable for children?
+                                <span class="faq-question__icon">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer__inner">
+                                    Our seeds and grains are suitable for most people including children, though we
+                                    recommend consulting a healthcare provider for very young children (under 2 years).
+                                    For older children, seeds can be ground or blended for easier digestion and nutrient
+                                    absorption.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--parchment">
+        <div class="container" style="text-align: center;">
+            <div class="animate-fade-up">
+                <span class="section-eyebrow">Still Curious?</span>
+                <h2 style="margin: 12px 0 16px;">We're Always Here to Help</h2>
+                <p style="max-width: 480px; margin: 0 auto 32px;">Can't find the answer you're looking for? Reach out to
+                    our friendly team and we'll get back to you within 24 hours.</p>
+                <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer-logo-text">🌿 Appleberry Stories</div>
+                    <p>Pure seeds, pure stories. Bringing the finest organic grains and seeds to UK families.</p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">📷</a>
+                        <a href="#" class="footer__social-link">📘</a>
+                        <a href="#" class="footer__social-link">🐦</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="values.html">Our Values</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Products</h4>
+                    <ul class="footer__links">
+                        <li><a href="shop.html">Organic Quinoa</a></li>
+                        <li><a href="shop.html">Golden Flaxseeds</a></li>
+                        <li><a href="shop.html">Chia Seeds</a></li>
+                        <li><a href="shop.html">Sunflower Seeds</a></li>
+                        <li><a href="shop.html">Pumpkin Seeds</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Contact</h4>
+                    <div class="footer__contact-item">📧 hello@appleberrystories.com</div>
+                    <div class="footer__contact-item">📍 Sale, Manchester</div>
+                    <div class="footer__contact-item">🕐 Mon-Fri 9am–5pm</div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Appleberry Stories. All rights reserved.</p>
+                <div class="footer__bottom-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
