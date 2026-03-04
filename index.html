@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Appleberry Stories | Pure Seeds, Pure Stories</title>
-  <meta name="description" content="Shop premium organic quinoa, flax, chia, sunflower, and pumpkin seeds sourced responsibly for your healthy lifestyle." />
+  <meta name="description"
+    content="Shop premium organic quinoa, flax, chia, sunflower, and pumpkin seeds sourced responsibly for your healthy lifestyle." />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
+
+  <!-- Cart Overlay & Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="cart-close" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart Items Injected Here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-summary-line">
+        <span>Total</span>
+        <span id="cartTotal">£0.00</span>
+      </div>
+      <button class="cart-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
 
   <!-- Announcement Bar -->
   <div class="announcement-bar">
@@ -26,20 +48,27 @@
       </a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link active">Home</a></li>
-        <li><a href="shop.html" class="nav__link">Shop</a></li>
+        <li><a href="shop.html#shop-grid" class="nav__link">Shop</a></li>
         <li><a href="about.html" class="nav__link">About Us</a></li>
         <li><a href="values.html" class="nav__link">Our Values</a></li>
         <li><a href="faqs.html" class="nav__link">FAQs</a></li>
         <li><a href="contact.html" class="nav__link">Contact</a></li>
-        <li><a href="shop.html" class="nav__link nav__cta">Shop Now →</a></li>
+        <li><a href="shop.html#shop-grid" class="nav__link nav__cta">Shop Now →</a></li>
       </ul>
+      <button class="nav__cart-btn" onclick="openCartDrawer()" aria-label="Open Cart">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+      </button>
       <button class="nav__hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <ul class="nav__mobile" id="mobileMenu">
       <li><a href="index.html" class="nav__link">Home</a></li>
-      <li><a href="shop.html" class="nav__link">Shop</a></li>
+      <li><a href="shop.html#shop-grid" class="nav__link">Shop</a></li>
       <li><a href="about.html" class="nav__link">About Us</a></li>
       <li><a href="values.html" class="nav__link">Our Values</a></li>
       <li><a href="faqs.html" class="nav__link">FAQs</a></li>
@@ -63,8 +92,9 @@
         thoughtfully packed, and delivered fresh to nourish your family's everyday life.
       </p>
       <div class="hero__actions">
-        <a href="shop.html" class="btn btn--amber btn--lg">Explore Our Range →</a>
-        <a href="about.html" class="btn btn--secondary" style="color:var(--color-cream);border-color:rgba(250,246,237,0.5)">Our Story</a>
+        <a href="shop.html#shop-grid" class="btn btn--amber btn--lg">Explore Our Range →</a>
+        <a href="about.html" class="btn btn--secondary"
+          style="color:var(--color-cream);border-color:rgba(250,246,237,0.5)">Our Story</a>
       </div>
     </div>
     <div class="hero__trust">
@@ -90,12 +120,14 @@
         <div class="feature-card animate-fade-up">
           <div class="feature-card__icon">🌱</div>
           <h4 class="feature-card__title">100% Organic</h4>
-          <p class="feature-card__desc">Every grain and seed is certified organic, free from pesticides and artificial additives.</p>
+          <p class="feature-card__desc">Every grain and seed is certified organic, free from pesticides and artificial
+            additives.</p>
         </div>
         <div class="feature-card animate-fade-up animate-delay-1">
           <div class="feature-card__icon">🌍</div>
           <h4 class="feature-card__title">Sustainable Sourcing</h4>
-          <p class="feature-card__desc">We partner with ethical farmers who care deeply for the earth and their communities.</p>
+          <p class="feature-card__desc">We partner with ethical farmers who care deeply for the earth and their
+            communities.</p>
         </div>
         <div class="feature-card animate-fade-up animate-delay-2">
           <div class="feature-card__icon">🚚</div>
@@ -138,7 +170,8 @@
           <div class="product-card__body">
             <div class="product-card__category">Grains</div>
             <h3 class="product-card__name">Organic Quinoa</h3>
-            <p class="product-card__desc">Nutty, fluffy, and packed with complete protein. Perfect as a rice alternative or in salads.</p>
+            <p class="product-card__desc">Nutty, fluffy, and packed with complete protein. Perfect as a rice alternative
+              or in salads.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£6.99 <span class="product-card__price-unit">/ 500g</span></div>
@@ -157,7 +190,8 @@
           <div class="product-card__body">
             <div class="product-card__category">Seeds · Omega Rich</div>
             <h3 class="product-card__name">Golden Flaxseeds</h3>
-            <p class="product-card__desc">Rich in omega-3 goodness. Add to smoothies, porridge, or baking for a nutritional boost.</p>
+            <p class="product-card__desc">Rich in omega-3 goodness. Add to smoothies, porridge, or baking for a
+              nutritional boost.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£4.99 <span class="product-card__price-unit">/ 400g</span></div>
@@ -175,7 +209,8 @@
           <div class="product-card__body">
             <div class="product-card__category">Seeds</div>
             <h3 class="product-card__name">Sunflower Seeds</h3>
-            <p class="product-card__desc">Crunchy, wholesome, and naturally delicious. Great for snacking or as a salad topper.</p>
+            <p class="product-card__desc">Crunchy, wholesome, and naturally delicious. Great for snacking or as a salad
+              topper.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£3.99 <span class="product-card__price-unit">/ 400g</span></div>
@@ -194,7 +229,8 @@
           <div class="product-card__body">
             <div class="product-card__category">Seeds · Omega Rich</div>
             <h3 class="product-card__name">Chia Seeds</h3>
-            <p class="product-card__desc">Tiny powerhouses rich in fibre, omega-3, and minerals. Ideal for puddings and drinks.</p>
+            <p class="product-card__desc">Tiny powerhouses rich in fibre, omega-3, and minerals. Ideal for puddings and
+              drinks.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£5.49 <span class="product-card__price-unit">/ 300g</span></div>
@@ -212,7 +248,8 @@
           <div class="product-card__body">
             <div class="product-card__category">Seeds</div>
             <h3 class="product-card__name">Pumpkin Seeds</h3>
-            <p class="product-card__desc">Rich in zinc and magnesium. A delicious, nutrient-dense snack or meal addition.</p>
+            <p class="product-card__desc">Rich in zinc and magnesium. A delicious, nutrient-dense snack or meal
+              addition.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£4.49 <span class="product-card__price-unit">/ 350g</span></div>
@@ -224,13 +261,15 @@
 
         <!-- Seed Mix -->
         <div class="product-card animate-fade-up animate-delay-5" data-category="seeds grains omega">
-          <div class="product-card__image-wrap" style="background: linear-gradient(135deg, var(--color-parchment), var(--color-linen)); display:flex; align-items:center; justify-content:center; font-size:5rem;">
+          <div class="product-card__image-wrap"
+            style="background: linear-gradient(135deg, var(--color-parchment), var(--color-linen)); display:flex; align-items:center; justify-content:center; font-size:5rem;">
             🌾
           </div>
           <div class="product-card__body">
             <div class="product-card__category">Bundle</div>
             <h3 class="product-card__name">Super Seed Mix</h3>
-            <p class="product-card__desc">Our signature blend of flax, chia, sunflower & pumpkin seeds. The ultimate wellness boost.</p>
+            <p class="product-card__desc">Our signature blend of flax, chia, sunflower & pumpkin seeds. The ultimate
+              wellness boost.</p>
             <div class="product-card__footer">
               <div>
                 <div class="product-card__price">£9.99 <span class="product-card__price-unit">/ 500g</span></div>
@@ -242,7 +281,7 @@
       </div>
 
       <div class="text-center" style="margin-top: 48px;">
-        <a href="shop.html" class="btn btn--primary btn--lg">View All Products →</a>
+        <a href="shop.html#shop-grid" class="btn btn--primary btn--lg">View All Products →</a>
       </div>
     </div>
   </section>
@@ -332,7 +371,9 @@
         <div class="testimonial-card animate-fade-up">
           <div class="testimonial-card__quote-mark">"</div>
           <div class="testimonial-card__stars">★★★★★</div>
-          <p class="testimonial-card__text">Love the fresh taste and purity of these seeds – perfect for my morning muesli! I've tried many brands but Appleberry Stories just feels different — cleaner, richer, and genuinely wholesome.</p>
+          <p class="testimonial-card__text">Love the fresh taste and purity of these seeds – perfect for my morning
+            muesli! I've tried many brands but Appleberry Stories just feels different — cleaner, richer, and genuinely
+            wholesome.</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar">E</div>
             <div>
@@ -344,7 +385,8 @@
         <div class="testimonial-card animate-fade-up animate-delay-1">
           <div class="testimonial-card__quote-mark">"</div>
           <div class="testimonial-card__stars">★★★★★</div>
-          <p class="testimonial-card__text">I trust Appleberry Stories for clean, organic grains that help keep my family healthy. The quality is exceptional and delivery is always prompt with lovely packaging.</p>
+          <p class="testimonial-card__text">I trust Appleberry Stories for clean, organic grains that help keep my
+            family healthy. The quality is exceptional and delivery is always prompt with lovely packaging.</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar">M</div>
             <div>
@@ -356,7 +398,8 @@
         <div class="testimonial-card animate-fade-up animate-delay-2">
           <div class="testimonial-card__quote-mark">"</div>
           <div class="testimonial-card__stars">★★★★★</div>
-          <p class="testimonial-card__text">The quinoa is absolutely divine — fluffy and nutty with an amazing texture. I love that I can trust exactly where my food comes from. Will definitely order again!</p>
+          <p class="testimonial-card__text">The quinoa is absolutely divine — fluffy and nutty with an amazing texture.
+            I love that I can trust exactly where my food comes from. Will definitely order again!</p>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar">S</div>
             <div>
@@ -375,7 +418,8 @@
       <div class="newsletter animate-fade-up">
         <span class="section-eyebrow" style="color:rgba(255,255,255,0.85);">Stay Nourished</span>
         <h2>Get Fresh Recipes & Seed Tips</h2>
-        <p>Join our community of health-conscious food lovers. Get monthly recipes, nutrition tips, and exclusive offers delivered to your inbox.</p>
+        <p>Join our community of health-conscious food lovers. Get monthly recipes, nutrition tips, and exclusive offers
+          delivered to your inbox.</p>
         <div class="newsletter-form">
           <input type="email" placeholder="Enter your email address..." id="heroNewsletter" />
           <button type="button" onclick="subscribeNewsletter()">Subscribe →</button>
@@ -391,7 +435,8 @@
         <!-- Brand -->
         <div class="footer__brand">
           <div class="footer-logo-text">🌿 Appleberry Stories</div>
-          <p>Pure seeds, pure stories. Bringing the finest organic grains and seeds from responsible farmers to UK families since 2022.</p>
+          <p>Pure seeds, pure stories. Bringing the finest organic grains and seeds from responsible farmers to UK
+            families since 2022.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Instagram">📷</a>
             <a href="#" class="footer__social-link" aria-label="Facebook">📘</a>
@@ -404,7 +449,7 @@
           <h4 class="footer__col-title">Quick Links</h4>
           <ul class="footer__links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop.html#shop-grid">Shop</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="values.html">Our Values</a></li>
             <li><a href="faqs.html">FAQs</a></li>
@@ -415,12 +460,12 @@
         <div>
           <h4 class="footer__col-title">Our Products</h4>
           <ul class="footer__links">
-            <li><a href="shop.html">Organic Quinoa</a></li>
-            <li><a href="shop.html">Golden Flaxseeds</a></li>
-            <li><a href="shop.html">Chia Seeds</a></li>
-            <li><a href="shop.html">Sunflower Seeds</a></li>
-            <li><a href="shop.html">Pumpkin Seeds</a></li>
-            <li><a href="shop.html">Super Seed Mix</a></li>
+            <li><a href="shop.html#shop-grid">Organic Quinoa</a></li>
+            <li><a href="shop.html#shop-grid">Golden Flaxseeds</a></li>
+            <li><a href="shop.html#shop-grid">Chia Seeds</a></li>
+            <li><a href="shop.html#shop-grid">Sunflower Seeds</a></li>
+            <li><a href="shop.html#shop-grid">Pumpkin Seeds</a></li>
+            <li><a href="shop.html#shop-grid">Super Seed Mix</a></li>
           </ul>
         </div>
         <!-- Newsletter -->
@@ -451,4 +496,5 @@
 
   <script src="assets/main.js"></script>
 </body>
+
 </html>

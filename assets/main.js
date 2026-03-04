@@ -205,16 +205,183 @@ function handleContactSubmit(event) {
 window.handleContactSubmit = handleContactSubmit;
 
 /* ─── ADD TO CART FEEDBACK ──────────────────────────────── */
+/* ─── ADD TO CART FEEDBACK & LOGIC ────────────────────── */
+const CART_KEY = 'appleberry_cart';
+let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+function saveCart() {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartUI();
+}
+
+function addToCart(product) {
+  const existingItem = cart.find(item => item.name === product.name);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+  saveCart();
+}
+
+function removeFromCart(productName) {
+  cart = cart.filter(item => item.name !== productName);
+  saveCart();
+}
+
+function updateCartQuantity(productName, delta) {
+  const item = cart.find(item => item.name === productName);
+  if (item) {
+    item.quantity += delta;
+    if (item.quantity <= 0) {
+      removeFromCart(productName);
+    } else {
+      saveCart();
+    }
+  }
+}
+
+function updateCartUI() {
+  // Update badge count
+  const badge = document.getElementById('cartBadge');
+  if (badge) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = totalItems;
+    badge.style.display = totalItems > 0 ? 'flex' : 'none';
+  }
+
+  // Update Drawer UI
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  if (!cartItemsContainer || !cartTotalEl) return;
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '<div class="cart-empty">Your cart is currently empty.</div>';
+    cartTotalEl.textContent = '£0.00';
+    return;
+  }
+
+  let totalStr = 0;
+  cartItemsContainer.innerHTML = cart.map(item => {
+    totalStr += (item.price * item.quantity);
+    return `
+      <div class="cart-item">
+        <img src="${item.image}" alt="${item.name}" class="cart-item__img" />
+        <div class="cart-item__details">
+          <div class="cart-item__name">${item.name}</div>
+          <div class="cart-item__price">£${item.price.toFixed(2)}</div>
+          <div class="cart-item__actions">
+            <div class="cart-qty">
+              <button onclick="updateCartQuantity('${item.name}', -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateCartQuantity('${item.name}', 1)">+</button>
+            </div>
+            <button class="cart-item__remove" onclick="removeFromCart('${item.name}')">Remove</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  cartTotalEl.textContent = `£${totalStr.toFixed(2)}`;
+
+  // Update Product Cards on the page
+  document.querySelectorAll('.product-card').forEach(card => {
+    const name = card.querySelector('.product-card__name').textContent.trim();
+    const btn = card.querySelector('.product-card__btn');
+    let qtyContainer = card.querySelector('.product-card-qty');
+
+    const itemInCart = cart.find(item => item.name === name);
+
+    if (itemInCart) {
+      if (btn) btn.style.display = 'none';
+      if (!qtyContainer) {
+        qtyContainer = document.createElement('div');
+        qtyContainer.className = 'product-card-qty';
+        qtyContainer.innerHTML = `
+          <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
+          <span class="qty-val"></span>
+          <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+        `;
+        const footer = card.querySelector('.product-card__footer');
+        footer.appendChild(qtyContainer);
+
+        // Add event listeners for the new quantity buttons
+        qtyContainer.querySelector('.minus').addEventListener('click', function () {
+          updateCartQuantity(name, -1);
+        });
+        qtyContainer.querySelector('.plus').addEventListener('click', function () {
+          updateCartQuantity(name, 1);
+        });
+      }
+      qtyContainer.style.display = 'flex';
+      qtyContainer.querySelector('.qty-val').textContent = itemInCart.quantity;
+    } else {
+      if (btn) btn.style.display = 'flex';
+      if (qtyContainer) {
+        qtyContainer.style.display = 'none';
+      }
+    }
+  });
+}
+
+// Make globally accessible
+window.updateCartQuantity = updateCartQuantity;
+window.removeFromCart = removeFromCart;
+
 document.querySelectorAll('.product-card__btn').forEach(btn => {
   btn.addEventListener('click', function () {
-    const original = this.textContent;
-    this.textContent = '✓';
-    this.style.background = 'var(--color-sage)';
-    setTimeout(() => {
-      this.textContent = original;
-      this.style.background = '';
-    }, 1200);
+    const card = this.closest('.product-card');
+    const name = card.querySelector('.product-card__name').textContent.trim();
+    const priceStr = card.querySelector('.product-card__price').textContent;
+    // Extract price number: £6.99 / 500g -> "6.99"
+    const priceMatch = priceStr.match(/£([0-9.]+)/);
+    const price = priceMatch ? parseFloat(priceMatch[1]) : 0;
+    const image = card.querySelector('img').getAttribute('src');
+
+    addToCart({ name, price, image });
+
+    // UI Feedback is now managed by updateCartUI showing the quantity controls instead of opening drawer!
   });
+});
+
+/* ─── CART DRAWER CONTROLS ──────────────────────────────── */
+function openCartDrawer() {
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer && overlay) {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevent scrolling
+  }
+}
+
+function closeCartDrawer() {
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer && overlay) {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+window.openCartDrawer = openCartDrawer;
+window.closeCartDrawer = closeCartDrawer;
+
+// Initialize Cart on Load
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartUI();
+
+  // Highlight Smooth Scroll if needed
+  if (window.location.hash === '#shop-grid') {
+    const el = document.getElementById('shop-grid');
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
 });
 
 /* ─── SMOOTH ACTIVE NAV HIGHLIGHT ──────────────────────── */
