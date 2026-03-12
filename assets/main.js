@@ -3,16 +3,7 @@
    ============================================================ */
 
 /* ─── NAV SCROLL EFFECT ─────────────────────────────────── */
-const nav = document.getElementById('mainNav');
-if (nav) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-}
+// Handled by app-header component now
 
 /* ─── HERO PARALLAX LOAD ────────────────────────────────── */
 const hero = document.getElementById('hero');
@@ -23,25 +14,7 @@ if (hero) {
 }
 
 /* ─── HAMBURGER MENU ────────────────────────────────────── */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', isOpen);
-    // Animate hamburger to X
-    const spans = hamburger.querySelectorAll('span');
-    if (isOpen) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans[0].style.transform = '';
-      spans[1].style.opacity = '';
-      spans[2].style.transform = '';
-    }
-  });
-}
+// Handled by app-header component now
 
 /* ─── SCROLL ANIMATIONS ─────────────────────────────────── */
 const animateElements = document.querySelectorAll('.animate-fade-up');
@@ -385,10 +358,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ─── SMOOTH ACTIVE NAV HIGHLIGHT ──────────────────────── */
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav__link').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage && !link.classList.contains('nav__cta')) {
-    link.classList.add('active');
-  }
-});
+// Handled by app-header component now
